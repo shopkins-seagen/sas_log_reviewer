@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Review{% endblock %}
+{% block content %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form method="post">
+        <div class="container-fluid">
+            <h5 class="text-primary">Paste Log Contents Here</h5>
+            <textarea id="review" name="review" rows="20" cols="100"></textarea>
+            <hr/>
+
+            <button class="btn btn-outline-primary" type="submit"><i style='margin-right:3px;' class="fa fa-running"></i>Review Log</button>
+        </div>
+    </form>
+{% endblock %}

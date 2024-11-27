@@ -1,0 +1,19 @@
+{
+  "errors": "^ERROR(:|.*:)",
+  "notes": [
+    "UNINITIALIZED",
+    "REPEATS OF BY VALUES",
+    "W.D FORMAT",
+    "ASSUMING THE SYMBOL",
+    "VALUES HAVE BEEN CONVERTED TO",
+    "MISSING VALUES WERE GENERATED AS A RESULT",
+    "DIVISION BY ZERO DETECTED",
+    "OUTSIDE THE AXIS RANGE",
+    "INVALID ARGUMENT TO FUNCTION",
+    "MATHEMATICAL OPERATIONS COULD NOT BE PERFORMED",
+    "INVALID DATA",
+    "MEANING OF AN IDENTIFIER"
+  ],
+  "warnings": "^WARNING(:|.*:)(?!.*Unable to copy)(?!.*scheduled to expire)",
+  "notice": "^NOTICE:"
+}

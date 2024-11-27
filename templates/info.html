@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Info{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-1">
+                <label>Author</label>
+            </div>
+            <div class="col-sm-8">
+                <label>Shawn Hopkins <a href="mailto:shawn.hopkins@pfizer.com"><i
+                        class="fa fa-envelope"></i></a></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1">
+                <label>Purpose</label>
+            </div>
+            <div class="col-sm-8">
+                <label>Temporary solution for summarizing SAS log using RegEx patterns</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1">
+                <label>Source</label>
+            </div>
+            <div class="col-sm-8">
+                <label><a href="https://github.com/shopkins-seagen/sas_log_reviewer" target="_blank">GitHub</a></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1">
+                <label>Retention</label>
+            </div>
+            <div class="col-sm-8">
+                <label>No data are retained by the application</label>
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
+            <h5>Regex patterns used to identify log line types</h5>
+            <ul class="form-control" style="list-style-type:none;">
+                {% for p in patterns %}
+                    <li>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <label>{{ p }}</label>
+                            </div>
+                            <div class="col-sm-10">
+                                <label>{{ patterns[p] }}</label>
+                            </div>
+                        </div>
+
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Findings{% endblock %}
+{% block content %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="container-fluid">
+        <h5>Log Findings</h5>
+
+        <input type="text" class="form-control" id="txtSearch" onkeyup="search()" placeholder="Search">
+        <table class="table table-striped" id="tblFindings">
+            <thead>
+            <tr>
+                <th style="width:100px;">Line#</th>
+                <th style="width:150px;">
+                    <select id="selFilter" class="form-control" onchange="filter()">
+                        <option selected value=".">All</option>
+                        <option value="error">Error</option>
+                        <option value="warning">Warning</option>
+                        <option value="note">Note</option>
+                        <option value="notice">Notice</option>
+                    </select></th>
+                <th style="width: 80%;">Log Line</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for f in findings %}
+                <tr>
+                    <td>{{ f['lineno'] }}</td>
+                    <td>{{ f['type'] }}</td>
+
+                    <td>{{ f['line'] }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
