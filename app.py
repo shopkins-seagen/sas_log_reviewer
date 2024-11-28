@@ -4,19 +4,17 @@ from werkzeug.utils import secure_filename
 import os
 from model import LogReview
 
-
 app = Flask(__name__,
-            template_folder='templates',
-            static_url_path='',
-            static_folder='static')
+            template_folder='templates')
 app.config["SECRET_KEY"]='pfe'
-app.debug = True
+app.config['STATIC_FOLDER']='static'
+app.config['UPLOAD_FOLDER']='static/downloads'
 
 @app.route('/',methods=['GET','POST'])
 def review():
     if request.method == 'POST':
         f = request.files['file']
-        fn = f'static/downloads/{secure_filename(f.filename)}'
+        fn = f'static/{secure_filename(f.filename)}'
         f.save(fn)
         logReview = LogReview(fn,'static/patterns.json')
         logReview.review()
