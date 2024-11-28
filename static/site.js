@@ -40,3 +40,11 @@ var input, filter, table, tr, td, i, txtValue;
     }
   }
 }
+
+function enabledReview(element) {
+    if (element.value==="") {
+        alert("Select a SAS Log file!");
+        return false
+    }
+    return true;
+}

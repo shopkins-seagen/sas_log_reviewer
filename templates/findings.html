@@ -11,14 +11,14 @@
     <div class="container-fluid">
         <h5>Log Findings</h5>
 
-        <input type="text" class="form-control" id="txtSearch" onkeyup="search()" placeholder="Search">
+        <input type="text" class="form-control" id="txtSearch" onkeyup="search()" placeholder="Filter Log Line">
         <table class="table table-striped" id="tblFindings">
             <thead>
-            <tr>
+            <tr class="table-primary">
                 <th style="width:100px;">Line#</th>
                 <th style="width:150px;">
-                    <select id="selFilter" class="form-control" onchange="filter()">
-                        <option selected value=".">All</option>
+                    <select id="selFilter" class="form-control text-primary" onchange="filter()">
+                        <option selected value=".">All Issue Types</option>
                         <option value="error">Error</option>
                         <option value="warning">Warning</option>
                         <option value="note">Note</option>

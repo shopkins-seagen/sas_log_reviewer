@@ -1,18 +1,23 @@
 import json
 import re
+import os
+
 class LogReview:
-    def __init__(self,log,fn):
+    def __init__(self, log, patterns):
         self.log = log
         self.patterns = {}
         self.findings = []
         self.types = ['errors','warnings','notes','notice']
-        self.get_patterns(fn)
+        self.get_patterns(patterns)
 
     def review(self):
-        for line in self.log:
+        with open (self.log) as f:
+            lines = f.readlines()
+        os.remove(self.log)
+        for i,line in enumerate(lines):
             for t in self.types:
-                if re.search(self.patterns[t],line[1]):
-                    self.findings.append({'type':t,'lineno':line[0], 'line':line[1]})
+                if re.search(self.patterns[t],line):
+                    self.findings.append({'type':t,'lineno':i+1, 'line':line})
 
     def get_patterns(self,fn):
         with open (fn) as f:

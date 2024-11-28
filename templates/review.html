@@ -9,13 +9,15 @@
         {% endif %}
     {% endwith %}
 
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <div class="container-fluid">
-            <h5 class="text-primary">Paste Log Contents Here</h5>
-            <textarea id="review" name="review" rows="20" cols="100"></textarea>
+            <h5 class="text-primary">Select SAS Log File</h5>
+            <div class="form-group">
+                <h6>Load Data</h6>
+                <input style="width:600px;background-color: aliceblue;" class="form-floating form-control" type="file" name="file" id="file">
+            </div>
             <hr/>
-
-            <button class="btn btn-outline-primary" type="submit"><i style='margin-right:3px;' class="fa fa-running"></i>Review Log</button>
+            <button class="btn btn-outline-primary" onclick="return enabledReview(document.getElementById('file'))" type="submit"><i style='margin-right:3px;' class="fa fa-running"></i>Review Log</button>
         </div>
     </form>
 {% endblock %}

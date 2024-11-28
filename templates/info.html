@@ -2,6 +2,32 @@
 {% block title %}Info{% endblock %}
 {% block content %}
     <div class="container-fluid">
+        <h5 class="text-primary">Using the Log Reviewer</h5>
+        <ol>
+            <li>For Sigma logs, in Studio, navigate to the logs folder for the appropriate artifact and state</li>
+            <li>Right-click on the SAS log file and select Download</li>
+            <li>Select the file in the drop down on the home page of the Log Review app and click Review</li>
+            <li>Filter by Issue Type in the dropdown or type in the 'Filter Log Line' box to filter by log line text</li>
+        </ol>
+        <hr/>
+        <div class="row">
+            <h5 class="text-primary">Regex patterns used to identify log line types</h5>
+            <ul class="form-control" style="list-style-type:none;">
+                {% for p in patterns %}
+                    <li>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <label>{{ p }}</label>
+                            </div>
+                            <div class="col-sm-10">
+                                <label>{{ patterns[p] }}</label>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    <hr/>
         <div class="row">
             <div class="col-sm-1">
                 <label>Author</label>
@@ -34,25 +60,6 @@
             <div class="col-sm-8">
                 <label>No data are retained by the application</label>
             </div>
-        </div>
-        <hr/>
-        <div class="row">
-            <h5>Regex patterns used to identify log line types</h5>
-            <ul class="form-control" style="list-style-type:none;">
-                {% for p in patterns %}
-                    <li>
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <label>{{ p }}</label>
-                            </div>
-                            <div class="col-sm-10">
-                                <label>{{ patterns[p] }}</label>
-                            </div>
-                        </div>
-
-                    </li>
-                {% endfor %}
-            </ul>
         </div>
     </div>
 {% endblock %}
