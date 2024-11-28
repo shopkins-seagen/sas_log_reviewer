@@ -28,10 +28,10 @@ def findings():
     if len(findings)==0:
         findings.append({'type':'none','lineno':0, 'line':"No issues detected"})
     return render_template('findings.html',findings=findings)
-@app.route('/info',methods=['GET'])
+@app.route('/guide',methods=['GET'])
 def info():
     patterns = LogReview.display_patterns('static/patterns.json')
-    return render_template('info.html',patterns=patterns)
+    return render_template('user_guide.html', patterns=patterns)
 
 if __name__ == '__main__':
     app.run()
