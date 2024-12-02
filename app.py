@@ -8,13 +8,13 @@ app = Flask(__name__,
             template_folder='templates')
 app.config["SECRET_KEY"]='pfe'
 app.config['STATIC_FOLDER']='static'
-app.config['UPLOAD_FOLDER']='static/downloads'
+app.config['UPLOAD_FOLDER']='static/uploads'
 
 @app.route('/',methods=['GET','POST'])
 def review():
     if request.method == 'POST':
         f = request.files['file']
-        fn = f'static/{secure_filename(f.filename)}'
+        fn = f'static/uploads/{secure_filename(f.filename)}'
         f.save(fn)
         logReview = LogReview(fn,'static/patterns.json')
         logReview.review()
